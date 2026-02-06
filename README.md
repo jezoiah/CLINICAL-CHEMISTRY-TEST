@@ -15,9 +15,7 @@
 - All Liver tests (tests/electrolyte/)
 - TestResult.java (model/)
 - Main application (ClinicalChemistryApp.java)
-```
 
-```
 ### Project Structure
 ```
 ClinicalChemistryLab/
