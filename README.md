@@ -58,7 +58,7 @@ ClinicalChemistryLab/
 ├── README.md                        ← JAVIER
 │
 │
-└── compile.sh / compile.bat         ← JAVIER
+└── compile.sh / compile.ps1         ← JAVIER
 
 ```
 ## How to Run
