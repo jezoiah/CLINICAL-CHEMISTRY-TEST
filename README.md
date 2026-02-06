@@ -80,6 +80,3 @@ java -cp bin ClinicalChemistryApp
 - Git/GitHub for version control
 - Daily meetings for integration
 - Google Docs for documentation
-
-## Timeline
-- Feb 6, Friday: Javier created the repository, documentation, and planning; Dela Pena researched the Clinical Chemistry Test and tested an AI Java program with JavaFX sample templates.
