@@ -62,9 +62,17 @@ ClinicalChemistryLab/
 
 ```
 ## How to Run
+**bash**
 ```bash
 chmod +x compile.sh
 ./compile.sh
+java -cp bin ClinicalChemistryApp
+```
+
+**powershell**
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\compile.ps1
 java -cp bin ClinicalChemistryApp
 ```
 
