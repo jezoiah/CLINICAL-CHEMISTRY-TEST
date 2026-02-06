@@ -79,4 +79,3 @@ java -cp bin ClinicalChemistryApp
 ## Collaboration Tools
 - Git/GitHub for version control
 - Daily meetings for integration
-- Google Docs for documentation
