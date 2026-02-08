@@ -1,5 +1,3 @@
-# PowerShell compile script for Windows
-
 Write-Host "Compiling Java files..." -ForegroundColor Green
 
 # Create bin directory if it doesn't exist

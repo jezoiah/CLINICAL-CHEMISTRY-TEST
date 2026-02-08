@@ -3,13 +3,14 @@ package model;
 public class Patient {
     private String name;
     private String birthDate;
-    private String sex; // "M" or "F"
+    private String sex;
     private String sampleId;
     private String address;
     private String dateOfCollection;
     private String timeCollection;
     private String timeOfLastMeal;
     private String requestingPhysician;
+    private String age;
     
     public Patient(String name, String birthDate, String sex, String sampleId, String address) {
         this.name = name;
@@ -46,4 +47,7 @@ public class Patient {
     
     public String getRequestingPhysician() { return requestingPhysician; }
     public void setRequestingPhysician(String requestingPhysician) { this.requestingPhysician = requestingPhysician; }
+    
+    public String getAge() { return age; }
+    public void setAge(String age) { this.age = age; }
 }

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Run script for Clinical Chemistry App
-
 if [ -z "$PATH_TO_FX" ]; then
     echo "ERROR: PATH_TO_FX environment variable is not set!"
     echo "Please set it to your JavaFX SDK lib directory:"

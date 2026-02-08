@@ -23,10 +23,16 @@ import java.util.Map;
 
 public class ClinicalChemistryApp extends Application {
     
-    // Using HashMap to store checkboxes and text fields I learned this in class
+    // Using HashMap to store checkboxes and text fields I learned this online
     private TextField nameField;
     private TextField birthDateField;
+    private TextField ageField;
     private TextField sampleIdField;
+    private TextField addressField;
+    private TextField dateCollectionField;
+    private TextField timeCollectionField;
+    private TextField timeLastMealField;
+    private TextField physicianField;
     private ComboBox<String> sexComboBox;
     private Map<String, CheckBox> testCheckBoxes = new HashMap<>();
     private Map<String, TextField> testValueFields = new HashMap<>();
@@ -40,10 +46,10 @@ public class ClinicalChemistryApp extends Application {
         
         // Main layout
         HBox mainLayout = new HBox(10);
-        mainLayout.setPadding(new Insets(10));
+        mainLayout.setPadding(new Insets(8));
         
         // Left side - input forms
-        VBox leftSide = new VBox(10);
+        VBox leftSide = new VBox(8);
         leftSide.setPrefWidth(450);
         
         // Add sections to left side
@@ -53,7 +59,7 @@ public class ClinicalChemistryApp extends Application {
         leftSide.getChildren().add(createButtonSection());
         
         // Right side - results
-        VBox rightSide = new VBox(10);
+        VBox rightSide = new VBox(8);
         rightSide.setPrefWidth(550);
         
         // Add sections to right side
@@ -70,14 +76,15 @@ public class ClinicalChemistryApp extends Application {
     }
     
     private VBox createHeader() {
-        VBox header = new VBox(5);
+        VBox header = new VBox(3);
         header.setAlignment(Pos.CENTER);
-        header.setStyle("-fx-border-color: gray; -fx-border-width: 1; -fx-padding: 10;");
+        header.setStyle("-fx-border-color: gray; -fx-border-width: 1; -fx-padding: 5;");
         
         Label title = new Label("NUCOMP DIAGNOSTIC CORPORATION");
-        title.setStyle("-fx-font-size: 16px; -fx-font-weight: bold;");
+        title.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
         
         Label subtitle = new Label("Clinical Chemistry Laboratory");
+        subtitle.setStyle("-fx-font-size: 11px;");
         
         header.getChildren().add(title);
         header.getChildren().add(subtitle);
@@ -86,50 +93,111 @@ public class ClinicalChemistryApp extends Application {
     }
     
     private VBox createPatientInfoSection() {
-        VBox section = new VBox(8);
-        section.setStyle("-fx-border-color: gray; -fx-border-width: 1; -fx-padding: 10;");
+        VBox section = new VBox(5);
+        section.setStyle("-fx-border-color: gray; -fx-border-width: 1; -fx-padding: 8;");
         
         Label sectionLabel = new Label("PATIENT INFORMATION");
-        sectionLabel.setStyle("-fx-font-weight: bold;");
+        sectionLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 11px;");
         
         GridPane grid = new GridPane();
-        grid.setHgap(10);
-        grid.setVgap(8);
+        grid.setHgap(8);
+        grid.setVgap(5);
         
-        // Name
+        // Row 0: Name and Birth Date
         Label nameLabel = new Label("Name:");
+        nameLabel.setStyle("-fx-font-size: 10px;");
         nameField = new TextField();
         nameField.setPrefWidth(150);
+        nameField.setStyle("-fx-font-size: 10px;");
         
-        // Birth Date
         Label birthLabel = new Label("Birth Date:");
+        birthLabel.setStyle("-fx-font-size: 10px;");
         birthDateField = new TextField();
         birthDateField.setPromptText("MM/DD/YYYY");
         birthDateField.setPrefWidth(100);
+        birthDateField.setStyle("-fx-font-size: 10px;");
         
-        // Sex
+        grid.add(nameLabel, 0, 0);
+        grid.add(nameField, 1, 0);
+        grid.add(birthLabel, 2, 0);
+        grid.add(birthDateField, 3, 0);
+        
+        // Row 1: Date of Collection and Sample ID
+        Label dateCollLabel = new Label("Date of Collection:");
+        dateCollLabel.setStyle("-fx-font-size: 10px;");
+        dateCollectionField = new TextField();
+        dateCollectionField.setPrefWidth(150);
+        dateCollectionField.setStyle("-fx-font-size: 10px;");
+        
+        Label idLabel = new Label("Sample ID:");
+        idLabel.setStyle("-fx-font-size: 10px;");
+        sampleIdField = new TextField();
+        sampleIdField.setPrefWidth(100);
+        sampleIdField.setStyle("-fx-font-size: 10px;");
+        
+        grid.add(dateCollLabel, 0, 1);
+        grid.add(dateCollectionField, 1, 1);
+        grid.add(idLabel, 2, 1);
+        grid.add(sampleIdField, 3, 1);
+        
+        // Row 2: Time Collection and Sex
+        Label timeCollLabel = new Label("Time Collection:");
+        timeCollLabel.setStyle("-fx-font-size: 10px;");
+        timeCollectionField = new TextField();
+        timeCollectionField.setPrefWidth(150);
+        timeCollectionField.setStyle("-fx-font-size: 10px;");
+        
         Label sexLabel = new Label("Sex:");
+        sexLabel.setStyle("-fx-font-size: 10px;");
         sexComboBox = new ComboBox<>();
         sexComboBox.getItems().add("M");
         sexComboBox.getItems().add("F");
         sexComboBox.setValue("M");
-        sexComboBox.setPrefWidth(60);
+        sexComboBox.setPrefWidth(100);
+        sexComboBox.setStyle("-fx-font-size: 10px;");
         
-        // ID
-        Label idLabel = new Label("ID:");
-        sampleIdField = new TextField();
-        sampleIdField.setPrefWidth(80);
+        grid.add(timeCollLabel, 0, 2);
+        grid.add(timeCollectionField, 1, 2);
+        grid.add(sexLabel, 2, 2);
+        grid.add(sexComboBox, 3, 2);
         
-        // Add to grid
-        grid.add(nameLabel, 0, 0);
-        grid.add(nameField, 1, 0);
-        grid.add(sexLabel, 2, 0);
-        grid.add(sexComboBox, 3, 0);
+        // Row 3: Time of Last Meal and Age
+        Label mealLabel = new Label("Time of Last Meal:");
+        mealLabel.setStyle("-fx-font-size: 10px;");
+        timeLastMealField = new TextField();
+        timeLastMealField.setPrefWidth(150);
+        timeLastMealField.setStyle("-fx-font-size: 10px;");
         
-        grid.add(birthLabel, 0, 1);
-        grid.add(birthDateField, 1, 1);
-        grid.add(idLabel, 2, 1);
-        grid.add(sampleIdField, 3, 1);
+        Label ageLabel = new Label("Age:");
+        ageLabel.setStyle("-fx-font-size: 10px;");
+        ageField = new TextField();
+        ageField.setPrefWidth(100);
+        ageField.setStyle("-fx-font-size: 10px;");
+        
+        grid.add(mealLabel, 0, 3);
+        grid.add(timeLastMealField, 1, 3);
+        grid.add(ageLabel, 2, 3);
+        grid.add(ageField, 3, 3);
+        
+        // Row 4: Address
+        Label addressLabel = new Label("Address:");
+        addressLabel.setStyle("-fx-font-size: 10px;");
+        addressField = new TextField();
+        addressField.setPrefWidth(330);
+        addressField.setStyle("-fx-font-size: 10px;");
+        
+        grid.add(addressLabel, 0, 4);
+        grid.add(addressField, 1, 4, 3, 1);
+        
+        // Row 5: Physician
+        Label physicianLabel = new Label("Physician:");
+        physicianLabel.setStyle("-fx-font-size: 10px;");
+        physicianField = new TextField();
+        physicianField.setPrefWidth(330);
+        physicianField.setStyle("-fx-font-size: 10px;");
+        
+        grid.add(physicianLabel, 0, 5);
+        grid.add(physicianField, 1, 5, 3, 1);
         
         section.getChildren().add(sectionLabel);
         section.getChildren().add(grid);
@@ -138,15 +206,15 @@ public class ClinicalChemistryApp extends Application {
     }
     
     private VBox createTestSelectionSection() {
-        VBox section = new VBox(8);
-        section.setStyle("-fx-border-color: gray; -fx-border-width: 1; -fx-padding: 10;");
+        VBox section = new VBox(5);
+        section.setStyle("-fx-border-color: gray; -fx-border-width: 1; -fx-padding: 8;");
         
         Label sectionLabel = new Label("SELECT TESTS AND ENTER VALUES");
-        sectionLabel.setStyle("-fx-font-weight: bold;");
+        sectionLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 11px;");
         
         GridPane testsGrid = new GridPane();
-        testsGrid.setHgap(15);
-        testsGrid.setVgap(8);
+        testsGrid.setHgap(12);
+        testsGrid.setVgap(5);
         
         // Left column tests
         String[] leftTests = {
@@ -225,10 +293,11 @@ public class ClinicalChemistryApp extends Application {
     private HBox createButtonSection() {
         HBox buttonBox = new HBox(10);
         buttonBox.setAlignment(Pos.CENTER);
-        buttonBox.setPadding(new Insets(10));
+        buttonBox.setPadding(new Insets(5));
         
         Button generateButton = new Button("Generate Results");
         generateButton.setPrefWidth(150);
+        generateButton.setStyle("-fx-font-size: 11px;");
         generateButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -238,6 +307,7 @@ public class ClinicalChemistryApp extends Application {
         
         Button clearButton = new Button("Clear All");
         clearButton.setPrefWidth(150);
+        clearButton.setStyle("-fx-font-size: 11px;");
         clearButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -341,15 +411,26 @@ public class ClinicalChemistryApp extends Application {
             birthDateField.getText(),
             sexComboBox.getValue(),
             sampleIdField.getText(),
-            ""
+            addressField.getText()
         );
+        
+        // Set additional fields
+        currentPatient.setAge(ageField.getText());
+        currentPatient.setDateOfCollection(dateCollectionField.getText());
+        currentPatient.setTimeCollection(timeCollectionField.getText());
+        currentPatient.setTimeOfLastMeal(timeLastMealField.getText());
+        currentPatient.setRequestingPhysician(physicianField.getText());
         
         // Display patient information
         String patientInfo = "";
         patientInfo = patientInfo + "Name: " + currentPatient.getName() + "\n";
-        patientInfo = patientInfo + "Birth Date: " + currentPatient.getBirthDate() + "\n";
-        patientInfo = patientInfo + "Sex: " + currentPatient.getSex() + "\n";
-        patientInfo = patientInfo + "ID: " + currentPatient.getSampleId();
+        patientInfo = patientInfo + "Birth Date: " + currentPatient.getBirthDate() + "  Age: " + currentPatient.getAge() + "\n";
+        patientInfo = patientInfo + "Sex: " + currentPatient.getSex() + "  ID: " + currentPatient.getSampleId() + "\n";
+        patientInfo = patientInfo + "Address: " + currentPatient.getAddress() + "\n";
+        patientInfo = patientInfo + "Date of Collection: " + currentPatient.getDateOfCollection() + "\n";
+        patientInfo = patientInfo + "Time Collection: " + currentPatient.getTimeCollection() + "\n";
+        patientInfo = patientInfo + "Time of Last Meal: " + currentPatient.getTimeOfLastMeal() + "\n";
+        patientInfo = patientInfo + "Physician: " + currentPatient.getRequestingPhysician();
         patientInfoArea.setText(patientInfo);
         
         // Process selected tests
@@ -466,7 +547,13 @@ public class ClinicalChemistryApp extends Application {
         // Clear patient info fields
         nameField.clear();
         birthDateField.clear();
+        ageField.clear();
         sampleIdField.clear();
+        addressField.clear();
+        dateCollectionField.clear();
+        timeCollectionField.clear();
+        timeLastMealField.clear();
+        physicianField.clear();
         sexComboBox.setValue("M");
         
         // Clear all checkboxes and text fields

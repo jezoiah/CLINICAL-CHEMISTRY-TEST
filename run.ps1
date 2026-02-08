@@ -1,5 +1,3 @@
-# PowerShell run script for Clinical Chemistry App
-
 if (-not $env:PATH_TO_FX) {
     Write-Host "ERROR: PATH_TO_FX environment variable is not set!" -ForegroundColor Red
     Write-Host "Please set it to your JavaFX SDK lib directory:" -ForegroundColor Yellow
