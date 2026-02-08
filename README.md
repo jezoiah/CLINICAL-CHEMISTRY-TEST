@@ -83,25 +83,6 @@ java -cp bin ClinicalChemistryApp
 
 ---
 
-## Project Overview
-
-This JavaFX application simulates a Clinical Chemistry Laboratory Diagnostic system for evaluating patient test results based on sex-specific reference ranges.
-
-### Features
-- ✅ Patient information management
-- ✅ 15 clinical chemistry tests
-- ✅ Sex-specific reference ranges (Male/Female)
-- ✅ Automatic result interpretation (LOW/NORMAL/HIGH)
-- ✅ Color-coded results display
-- ✅ JavaFX GUI with modern interface
-
-### Available Tests
-1. **Glucose Tests**: FBS, RBS
-2. **Lipid Profile**: Total Cholesterol, HDL, LDL, Triglycerides
-3. **Kidney Function**: Creatinine, Uric Acid, BUN
-4. **Liver Function**: AST/SGOT, ALT/SGPT
-5. **Electrolytes**: Sodium, Potassium, Chloride, Total Calcium, Ionized Calcium
-
 ## Setup Instructions
 
 ### Prerequisites
@@ -193,7 +174,3 @@ This project demonstrates **encapsulation** - the fundamental OOP principle of d
 ## Reference Ranges Source
 
 All reference ranges are based on the Clinical Chemistry Diagnostic.xlsx spreadsheet provided by the instructor, using S.I. Units (mmol/L, umol/L, uKat/L).
-
-## Academic Integrity
-
-This project was developed independently by the team members listed above. All code is original work created for the Intermediate Programming using Java course.
